@@ -15,64 +15,9 @@ const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 
-//SEARCH
-// SEARCH
-// +<<<<<<< SEARCH
-//  // MongoDB Configuration
-//  const mongoURI = 'mongodb+srv://Adarsh:excelpro123@cluster0.zzw8hek.mongodb.net';
-//  mongoose.connect(mongoURI)
-//    .then(() => console.log('Connected to MongoDB'))
-//    .catch((err) => console.error('MongoDB connection error:', err));
 
-// // Data Schema and Model (example, can be extended)
-// const dataSchema = new mongoose.Schema({
-//   name: String,
-//   age: Number,
-// });
-// const Data = mongoose.model('Data', dataSchema);
-
-// // History Schema and Model - Updated with more fields
-// const historySchema = new mongoose.Schema({
-//   type: String, // 'upload' or 'download'
-//   fileName: String, // for uploads
-//   chartType: String, // for downloads
-//   date: String,
-//   userId: String, // add userId to associate with user
-//   rows: Number, // number of rows in the uploaded file
-//   status: String, // 'Uploaded', 'Analyzed', etc.
-//   fileSize: Number, // file size in bytes
-//   uploadedAt: { type: Date, default: Date.now }, // timestamp for sorting
-// });
-// const History = mongoose.model('History', historySchema);
-// +=======
-// Remove MongoDB Configuration and connection
-// const mongoURI = 'mongodb+srv://Adarsh:excelpro123@cluster0.zzw8hek.mongodb.net';
-// mongoose.connect(mongoURI)
-//   .then(() => console.log('Connected to MongoDB'))
-//   .catch((err) => console.error('MongoDB connection error:', err));
-
-// Remove Data schema and model
-// const dataSchema = new mongoose.Schema({
-//   name: String,
-//   age: Number,
-// });
-// const Data = mongoose.model('Data', dataSchema);
-
-// Remove History schema and model
-// const historySchema = new mongoose.Schema({
-//   type: String, // 'upload' or 'download'
-//   fileName: String, // for uploads
-//   chartType: String, // for downloads
-//   date: String,
-//   userId: String, // add userId to associate with user
-//   rows: Number, // number of rows in the uploaded file
-//   status: String, // 'Uploaded', 'Analyzed', etc.
-//   fileSize: Number, // file size in bytes
-//   uploadedAt: { type: Date, default: Date.now }, // timestamp for sorting
-// });
-// const History = mongoose.model('History', historySchema);
  // MongoDB Configuration
- const mongoURI = 'mongodb+srv://Adarsh:excelpro123@cluster0.zzw8hek.mongodb.net';
+ const mongoURI = ;
  mongoose.connect(mongoURI)
    .then(() => console.log('Connected to MongoDB'))
    .catch((err) => console.error('MongoDB connection error:', err));
@@ -98,85 +43,6 @@ const historySchema = new mongoose.Schema({
 });
 const History = mongoose.model('History', historySchema);
 
-// Remove MongoDB Configuration and connection
-// const mongoURI = 'mongodb+srv://Adarsh:excelpro123@cluster0.zzw8hek.mongodb.net';
-// mongoose.connect(mongoURI)
-//   .then(() => console.log('Connected to MongoDB'))
-//   .catch((err) => console.error('MongoDB connection error:', err));
-
-// Remove Data schema and model
-// const dataSchema = new mongoose.Schema({
-//   name: String,
-//   age: Number,
-// });
-// const Data = mongoose.model('Data', dataSchema);
-
-// Remove History schema and model
-// const historySchema = new mongoose.Schema({
-//   type: String, // 'upload' or 'download'
-//   fileName: String, // for uploads
-//   chartType: String, // for downloads
-//   date: String,
-//   userId: String, // add userId to associate with user
-//   rows: Number, // number of rows in the uploaded file
-//   status: String, // 'Uploaded', 'Analyzed', etc.
-//   fileSize: Number, // file size in bytes
-//   uploadedAt: { type: Date, default: Date.now }, // timestamp for sorting
-// });
-// const History = mongoose.model('History', historySchema);
-// Remove MongoDB Configuration and connection
-// const mongoURI = 'mongodb+srv://Adarsh:excelpro123@cluster0.zzw8hek.mongodb.net';
-// mongoose.connect(mongoURI)
-//   .then(() => console.log('Connected to MongoDB'))
-//   .catch((err) => console.error('MongoDB connection error:', err));
-
-// Remove Data schema and model
-// const dataSchema = new mongoose.Schema({
-//   name: String,
-//   age: Number,
-// });
-// const Data = mongoose.model('Data', dataSchema);
-
-// Remove History schema and model
-// const historySchema = new mongoose.Schema({
-//   type: String, // 'upload' or 'download'
-//   fileName: String, // for uploads
-//   chartType: String, // for downloads
-//   date: String,
-//   userId: String, // add userId to associate with user
-//   rows: Number, // number of rows in the uploaded file
-//   status: String, // 'Uploaded', 'Analyzed', etc.
-//   fileSize: Number, // file size in bytes
-//   uploadedAt: { type: Date, default: Date.now }, // timestamp for sorting
-// });
-// const History = mongoose.model('History', historySchema);
-
-// Remove MongoDB Configuration and connection
-// const mongoURI = 'mongodb+srv://Adarsh:excelpro123@cluster0.zzw8hek.mongodb.net';
-// mongoose.connect(mongoURI)
-//   .then(() => console.log('Connected to MongoDB'))
-//   .catch((err) => console.error('MongoDB connection error:', err));
-
-// Remove Data schema and model
-// const dataSchema = new mongoose.Schema({
-//   name: String,
-//   age: Number,
-// });
-// const Data = mongoose.model('Data', dataSchema);
-
-// Remove History schema and model
-// const historySchema = new mongoose.Schema({
-//   type: String, // 'upload' or 'download'
-//   fileName: String, // for uploads
-//   chartType: String, // for downloads
-//   date: String,
-//   userId: String, // add userId to associate with user
-//   rows: Number, // number of rows in the uploaded file
-//   status: String, // 'Uploaded', 'Analyzed', etc.
-//   fileSize: Number, // file size in bytes
-//   uploadedAt: { type: Date, default: Date.now }, // timestamp for sorting
-// });
-// const History = mongoose.model('History', historySchema);
 
 
 // Set up multer for file uploads (store in uploads/ folder)
