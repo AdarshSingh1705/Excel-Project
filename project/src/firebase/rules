@@ -1,0 +1,65 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // User profiles: users can read and update their own profile
+    match /users/{userId} {
+      allow read, update: if request.auth != null && request.auth.uid == userId;
+      allow create: if request.auth != null;
+    }
+
+    // Groups: only allow owner (admin) to update, and members to read
+    match /groups/{groupId} {
+      // Allow any signed-in user to create a group
+      allow create: if request.auth != null;
+
+      // Allow read if user is group admin or member
+      allow read: if request.auth != null && (
+        request.auth.uid == resource.data.adminUid ||
+        (resource.data.members is list && request.auth.uid in resource.data.members)
+      );
+
+      // Allow update and delete only if the user is the admin
+      allow update, delete: if request.auth != null && request.auth.uid == resource.data.adminUid;
+    }
+
+    // Activity logs (per user)
+    match /users/{userId}/activityLogs/{logId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // File history (per user)
+    match /users/{userId}/fileHistory/{fileId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+
+    // Notifications
+    match /notifications/{notificationId} {
+      // Allow user to read/write their own notifications
+      allow read, write: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        request.auth.token.admin == true
+      );
+      // Allow user to create notification for themselves
+      allow create: if request.auth != null && (
+        request.auth.uid == request.resource.data.userId ||
+        request.auth.token.admin == true
+      );
+    }
+
+    // User history
+    match /history/{historyId} {
+      allow read, write: if request.auth != null && (
+        request.auth.uid == resource.data.userId ||
+        request.auth.token.admin == true
+      );
+      allow create: if request.auth != null && (
+        request.auth.uid == request.resource.data.userId ||
+        request.auth.token.admin == true
+      );
+      
+      // Allow users to update their own history entries
+      allow update: if request.auth != null && 
+        resource.data.userId == request.auth.uid;
+    }
+  }
+} 
